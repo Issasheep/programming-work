@@ -1,0 +1,14 @@
+{
+    "habbit_website": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+    "editing_setup": [
+        "C:\\Program Files\\Blackmagic Design\\DaVinci Resolve\\Resolve.exe",
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://www.youtube.com/@issasheep",
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://ssvid.net/en",
+        "C:\\Program Files\\obs-studio\\bin\\64bit\\obs64.exe"
+    ],
+    "job_application_setup": [
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://www.linkedin.com/jobs/",
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://au.indeed.com/",
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://www.seek.com.au/"
+    ]
+}
