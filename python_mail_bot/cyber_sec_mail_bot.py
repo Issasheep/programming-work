@@ -10,4 +10,7 @@ def send_email(subject, body, to_email):
     """
     try:
         # Initialize yagmail with your email and password
-        yag = yagmail.SMTP('
+        yag = yagmail.SMTP('pythontester117@gmail.com', 'ilikedengineeringinschool')
+    except Exception as e:
+        print(f"Error initializing yagmail: {e}")
+        return
