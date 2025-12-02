@@ -131,6 +131,12 @@ button = tk.Button(root, text="Click Me", command=on_button_click_davinchi_resol
 button.grid(row=1, column=4, padx=20, pady=10) 
 
 
+user_input = tk.Entry(root)
+user_input.grid(row=1, column=5, padx=20, pady=10) 
+
+
+button = tk.Button(root, text=user_input, command="")
+button.grid(row=1, column=6, padx=20, pady=10) 
 
 CustomButton = CustomButton(root, text="Custom Button")
 CustomButton.grid(row=2, column=0, padx=20, pady=10)
@@ -142,6 +148,11 @@ CustomButton.grid(row=2, column=0, padx=20, pady=10)
 label = tk.Label(root, text="Enter your name:")
 button.grid(row=0, column=6, padx=20, pady=10)
 
+try:
+    print (user_input.get())
+except Exception as e:
+    print(f"An error occurred: {e}")
+    
 root.mainloop()
 
 
