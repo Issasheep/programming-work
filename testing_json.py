@@ -1,10 +1,5 @@
-import json 
+list = ["hi","hi","hey","hi","hi"]
 
-
-with open ("setup.json", "r") as f:
-    setup = json.load(f)
-x = setup([0])
-
-print (x)
-
-
+print (list)
+list.pop(-1)
+print (list)

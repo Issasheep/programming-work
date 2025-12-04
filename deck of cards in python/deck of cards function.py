@@ -9,6 +9,8 @@ while True:
 
     full_deck = []
 
+
+
     class Card:
         def __init__(self, suit, rank, value):
             self.suit = suit
@@ -16,7 +18,8 @@ while True:
             self.value = value
 
         def __str__(self):
-            return f"{self.rank} of {self.suit} (Value: {self.value})"
+            return f"{self.rank} of {self.suit}"
+
 
     class face_card:
         def __init__(self):
@@ -24,7 +27,9 @@ while True:
             self.value = 10
             self.values = {'Jack', 'Queen', 'King'}
         def __str__(self):
-            return f"{self.suit}: {self.values}"
+            return f"{self.suit}: {self.values} "
+
+
 
     class suits: 
         def __init__(self, cards):
@@ -60,6 +65,14 @@ while True:
         random.shuffle(deck_of_cards)
         return deck_of_cards
     
+    def ace_checker():
+        if player_inventory[0].rank == 'Ace' and player_inventory[1].rank == 'Ace':
+            player_inventory[0].value = 11
+            player_inventory[1].value = 1
+        if dealer_inventory[0].rank == 'Ace' and dealer_inventory[1].rank == 'Ace':
+            dealer_inventory[0].value = 11
+            dealer_inventory[1].value = 1
+    
 
 
     player_score = 0
@@ -71,31 +84,31 @@ while True:
         print("Not enough cards to continue the game.")
         full_deck = shuffle_deck(deck_of_cards())
 
-    player_inventory = [full_deck[0], full_deck[1]]
-    full_deck.pop(0)
-    full_deck.pop(0)
+    def player_append_card():
+        player_inventory.append(full_deck[0])
+        full_deck.pop(0)
+    
 
-    dealer_inventory = [full_deck[0], full_deck[1]]
-    full_deck.pop(0)
-    full_deck.pop(0)
+    def dealer_append_card():
+        dealer_inventory.append(full_deck[0])
+        full_deck.pop(0)
 
-    player_inventory += [full_deck[2], full_deck[3]]
-    full_deck.pop(0)
-    full_deck.pop(0)
+    for i in range(2):
+        player_append_card()
+        dealer_append_card()
 
-    if player_inventory[0].rank == 'Ace' and player_inventory[1].rank == 'Ace':
-        player_inventory[0].value = 11
-        player_inventory[1].value = 1
-
-    print("Player's Cards: ", player_inventory[0], ", ", player_inventory[1]  ,"total value: ", player_inventory[0].value + player_inventory[1].value)
+    #print("Player's Cards: ", player_inventory[0], ", ", player_inventory[1]  ,"total value: ", player_inventory[0].value + player_inventory[1].value)
+    print (player_inventory)
+    print (dealer_inventory)
     print("Dealer's Cards: ", dealer_inventory[0], ", ", "Hidden Card \n",)
-
+    ace_checker()
     player_score = player_inventory[0].value + player_inventory[1].value
 
-    while True or player_score < 21:
+    while player_score <= 22 or player_input == 'n':
 
 
-        player_input = input("Type 'y' to get another card, type 'n' to pass: ") 
+        player_input = input("Type 'y' to get another card, type 'n' to pass: ")
+        player_input = player_input.lower()
 
         if player_input == 'y':
             player_card_3 = full_deck[0]
@@ -105,12 +118,12 @@ while True:
 
             if player_inventory[0].value + player_inventory[1].value + player_card_3.value > 21:
                 print("Player busts! Total value: ", player_inventory[0].value + player_inventory[1].value + player_card_3.value)
-                time.sleep (1000)
+                time.sleep (1)
                 break
 
             else:
                 player_score = player_inventory[0].value + player_inventory[1].value + player_card_3.value
-                continue
+                break
         else:
             print("Player's Cards: ", player_inventory[0], ", ", player_inventory[1]  ,"total value: ", player_inventory[0].value + player_inventory[1].value)
 
@@ -126,5 +139,5 @@ while True:
 
                 if dealer_score > 21:
                     print("Dealer busts! Total value: ", dealer_score)
-                    time.sleep (1000)
-                    break
+                    time.sleep (1)
+                
